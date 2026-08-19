@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Painel administrativo — Gerencie seus eventos e inscrições">
+  <title>Admin — Eventos Platform</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="/" class="navbar-brand">
+      <span class="brand-icon">⚡</span>
+      Eventos
+    </a>
+    <button class="navbar-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navbar-nav" id="navMenu">
+      <li><a href="/">Explorar</a></li>
+      <li><a href="/admin.html" class="active">Painel Admin</a></li>
+      <li><a href="/create.html" class="nav-btn-create">+ Criar Evento</a></li>
+    </ul>
+  </nav>
+
+  <main class="admin-page">
+    <div class="admin-header">
+      <h1>🎛️ Painel Administrativo</h1>
+      <a href="/create.html" class="btn btn-primary">+ Novo Evento</a>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid" id="statsGrid">
+      <div class="stat-card">
+        <div class="stat-icon">📅</div>
+        <div class="stat-value" id="totalEvents">—</div>
+        <div class="stat-label">Total de eventos</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">👥</div>
+        <div class="stat-value" id="totalRegistrations">—</div>
+        <div class="stat-label">Total de inscrições</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🟢</div>
+        <div class="stat-value" id="upcomingEvents">—</div>
+        <div class="stat-label">Eventos futuros</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🏟️</div>
+        <div class="stat-value" id="totalCapacity">—</div>
+        <div class="stat-label">Capacidade total</div>
+      </div>
+    </div>
+
+    <!-- Events Table -->
+    <div class="admin-table-wrapper">
+      <div class="admin-table-header">
+        <h2>Eventos cadastrados</h2>
+      </div>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Evento</th>
+            <th>Categoria</th>
+            <th>Data</th>
+            <th>Inscritos</th>
+            <th>Vagas</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="eventsTableBody">
+          <tr><td colspan="6"><div class="loading-spinner"><div class="spinner"></div></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Modal de inscritos -->
+  <div class="modal-overlay" id="registrationsModal">
+    <div class="modal" style="max-width: 600px;">
+      <div class="modal-header">
+        <h3 id="modalEventTitle">Inscritos</h3>
+        <button class="modal-close" id="closeRegModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="registrations-list" id="registrationsList">
+          <div class="loading-spinner"><div class="spinner"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de confirmação de exclusão -->
+  <div class="modal-overlay" id="deleteModal">
+    <div class="modal" style="max-width: 400px;">
+      <div class="modal-header">
+        <h3>Confirmar exclusão</h3>
+        <button class="modal-close" id="closeDeleteModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza que deseja excluir o evento <strong id="deleteEventName"></strong>? Esta ação não pode ser desfeita e todas as inscrições serão removidas.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelDelete">Cancelar</button>
+        <button class="btn btn-danger" id="confirmDelete">Excluir evento</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Feito com ⚡ por <a href="#">Eventos Platform</a> — © 2026</p>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

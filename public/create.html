@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Crie um novo evento na plataforma">
+  <title>Criar Evento — Eventos Platform</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="/" class="navbar-brand">
+      <span class="brand-icon">⚡</span>
+      Eventos
+    </a>
+    <button class="navbar-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navbar-nav" id="navMenu">
+      <li><a href="/">Explorar</a></li>
+      <li><a href="/admin.html">Painel Admin</a></li>
+      <li><a href="/create.html" class="nav-btn-create active">+ Criar Evento</a></li>
+    </ul>
+  </nav>
+
+  <main class="form-page">
+    <div class="form-page-header">
+      <h1 id="pageTitle">✨ Criar novo evento</h1>
+      <p id="pageSubtitle">Preencha as informações abaixo para criar seu evento.</p>
+    </div>
+
+    <div class="form-card">
+      <form id="eventForm" enctype="multipart/form-data">
+        <div class="form-group">
+          <label class="form-label" for="title">Título do evento *</label>
+          <input type="text" class="form-input" id="title" name="title" placeholder="Ex: Tech Summit 2026" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="shortDesc">Descrição curta</label>
+          <input type="text" class="form-input" id="shortDesc" name="short_description" placeholder="Resumo que aparece no card (máx. 120 caracteres)" maxlength="120">
+          <span class="form-help">Se deixar em branco, será gerado automaticamente.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="description">Descrição completa *</label>
+          <textarea class="form-textarea" id="description" name="description" placeholder="Descreva o evento com detalhes..." required></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="date">Data e hora *</label>
+            <input type="datetime-local" class="form-input" id="date" name="date" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="category">Categoria *</label>
+            <select class="form-select" id="category" name="category" required>
+              <option value="Tecnologia">Tecnologia</option>
+              <option value="Música">Música</option>
+              <option value="Arte">Arte</option>
+              <option value="Workshop">Workshop</option>
+              <option value="Negócios">Negócios</option>
+              <option value="Esportes">Esportes</option>
+              <option value="Educação">Educação</option>
+              <option value="Geral">Geral</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="location">Local *</label>
+            <input type="text" class="form-input" id="location" name="location" placeholder="Ex: Centro de Convenções — SP" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="maxAttendees">Vagas disponíveis</label>
+            <input type="number" class="form-input" id="maxAttendees" name="max_attendees" value="100" min="1">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Imagem do evento</label>
+          <div class="file-upload" id="fileUpload">
+            <div class="upload-icon">📷</div>
+            <div class="upload-text">Clique ou arraste uma imagem</div>
+            <div class="upload-hint">JPG, PNG, GIF ou WebP — Máx. 5MB</div>
+            <input type="file" id="imageInput" name="image" accept="image/jpeg,image/png,image/gif,image/webp">
+          </div>
+          <div class="file-preview" id="filePreview" style="display:none;">
+            <img id="previewImg" src="" alt="Preview">
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: flex-end; padding-top: 16px;">
+          <a href="/" class="btn btn-secondary">Cancelar</a>
+          <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">🚀 Criar evento</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Feito com ⚡ por <a href="#">Eventos Platform</a> — © 2026</p>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="/js/create.js"></script>
+</body>
+</html>

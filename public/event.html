@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detalhes do evento">
+  <title>Evento — Carregando...</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="/" class="navbar-brand">
+      <span class="brand-icon">⚡</span>
+      Eventos
+    </a>
+    <button class="navbar-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navbar-nav" id="navMenu">
+      <li><a href="/">Explorar</a></li>
+      <li><a href="/admin.html">Painel Admin</a></li>
+      <li><a href="/create.html" class="nav-btn-create">+ Criar Evento</a></li>
+    </ul>
+  </nav>
+
+  <main class="event-detail" id="eventDetail">
+    <div class="loading-spinner"><div class="spinner"></div></div>
+  </main>
+
+  <!-- Modal de inscrição -->
+  <div class="modal-overlay" id="registerModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Inscrever-se no evento</h3>
+        <button class="modal-close" id="closeModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="registerForm">
+          <div class="form-group">
+            <label class="form-label" for="regName">Nome completo *</label>
+            <input type="text" class="form-input" id="regName" placeholder="Seu nome completo" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="regEmail">Email *</label>
+            <input type="email" class="form-input" id="regEmail" placeholder="seu@email.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="regPhone">Telefone</label>
+            <input type="tel" class="form-input" id="regPhone" placeholder="(00) 00000-0000">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelRegister">Cancelar</button>
+        <button class="btn btn-primary" id="submitRegister">Confirmar inscrição</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Feito com ⚡ por <a href="#">Eventos Platform</a> — © 2026</p>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="/js/event.js"></script>
+</body>
+</html>
